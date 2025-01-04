@@ -1,0 +1,124 @@
+<div class="tableData mb-5">
+    <h2 class="dash_heading">Welcome to the Angular Dashboard</h2>
+    <h4 class="table-heading">Data from Reactive Form</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>Date Of Birth</th>
+                <th>Email</th>
+                <th>Nationality</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: p } let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{item.firstName}}</td>
+                <td>{{item.dateOfBirth}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.nationality}}</td>
+                <td>{{item.address}}</td>
+                <td>
+                    <button type="submit" class="btn btn-primary" (click)="editData(item.id)">Edit</button>
+                    <button type="submit" class="btn btn-danger" (click)="openModal(i)">Delete</button>
+                </td>
+            </tr>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </tbody>
+    </table>
+
+
+    <div>
+        <h4 class="table-heading">Data from FormArray using Reactive Form</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                    <th>Mobile No</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of dataFormArray | paginate: { itemsPerPage: 10, currentPage: p } let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.id}}</td>
+                    <td>{{item.mobileNo}}</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary" (click)="editFormArrayData(item.id)">Edit</button>
+                        <button type="submit" class="btn btn-danger" (click)="deleteFormArrayData(i)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table>
+    </div>
+
+    <div>
+        <h4 class="table-heading">Data From Template Driven Form</h4>
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th>Sr.No</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                    <th>Nationality</th>
+                    <th>Mobile No</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of templateFormData | paginate: { itemsPerPage: 10, currentPage: p } let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.firstName}}</td>
+                    <td>{{item.middleName}}</td>
+                    <td>{{item.lastName}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.id}}</td>
+                    <td>{{item.nationality}}</td>
+                    <td>{{item.mobileNo}}</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary" (click)="editTemFormData(item.id)">Edit</button>
+                        <button type="submit" class="btn btn-danger" (click)="deleteTemFormData(i)">Delete</button>
+                    </td>
+                </tr>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<!-- delete popup -->
+<div id="myModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete Popup</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are You want delete....?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" (click)="deleteData()">Yes</button>
+                <button type="submit" class="btn btn-secondary" (click)="closePopup()">No</button>
+            </div>
+        </div>
+    </div>
+</div>

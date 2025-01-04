@@ -1,0 +1,97 @@
+<!-- For Template Driven form -->
+<div class="form2 mt-4 mb-5">
+    <h4 class="mb-4 heading1">Registration Form with Template Driven Form</h4>
+    <div class="form2_content">
+        <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+            <div class="row formGroup mb-4 mt-4">
+                <div class="col">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" name="firstName" required placeholder="Enter First Name"
+                    [(ngModel)]="_model.firstName" #firstName="ngModel">
+                    <!-- <div class="error_msg" *ngIf="firstName?.touched && firstName?.invalid">
+                        First Name is Required
+                    </div> -->
+                </div>
+                <div class="col">
+                    <label for="middleName" class="form-label">Middle Name</label>
+                    <input type="text" class="form-control" name="middleName" required placeholder="Enter Middle Name"
+                    [(ngModel)]="_model.middleName" #middleName="ngModel">
+                    <div class="error_msg" *ngIf="middleName?.touched && middleName?.invalid">
+                        Middle Name is Required
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" required placeholder="Enter Last Name"
+                    [(ngModel)]="_model.lastName" #lastName="ngModel">
+                    <div class="error_msg" *ngIf="lastName?.touched && lastName?.invalid">
+                        Last Name is Required
+                    </div>
+                </div>
+            </div>
+            <div class="row formGroup mb-4">
+                <div class="col">
+                    <label for="mobileNo" class="form-label">Mobile Number</label>
+                    <input type="number" class="form-control" name="mobileNo" required placeholder="Enter Mobile Number"
+                    [(ngModel)]="_model.mobileNo" #mobileNo="ngModel">
+                    <div class="error_msg" *ngIf="mobileNo?.touched && mobileNo?.invalid">
+                        Mobile Number is Required
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" name="email" required placeholder="Enter Email"
+                    [(ngModel)]="_model.email" #email="ngModel">
+                    <div class="error_msg" *ngIf="email?.touched && email?.invalid">
+                        Email is Required
+                    </div>
+                </div>
+            </div>
+            <div class="row formGroup">
+                <div class="col">
+                    <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+                    <input type="date" class="form-control" name="dateOfBirth" required placeholder="select Date of Birth"
+                    [(ngModel)]="_model.dateOfBirth" #dateOfBirth="ngModel">
+                    <div class="error_msg" *ngIf="dateOfBirth?.touched && dateOfBirth?.invalid">
+                        Date of Birth Required
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="nationality" class="form-label">Nationality</label>
+                    <select class="form-control" name="nationality" #nationality="ngModel" required [(ngModel)]="_model.nationality">
+                        <option value="0">Please Select</option>
+                        <option value="Indian">Indian</option>
+                        <option value="Muslim">Muslim</option>
+                        <option value="Sikh">Sikh</option>
+                    </select>
+                    <div class="error_msg" *ngIf="nationality?.touched && nationality?.invalid">
+                        Nationality is Required
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="number" class="form-control" name="id" required placeholder="Please Enter ID"
+                    [(ngModel)]="_model.id" #id="ngModel">
+                    <div class="error_msg" *ngIf="id?.touched && id?.invalid">
+                        ID is Required
+                    </div>
+                </div>
+            </div>
+            <div class="row formGroup mt-4 mb-4">
+                <div class="col-md-4">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" rows="3" name="address" required placeholder="Enter Address" 
+                    [(ngModel)]="_model.address" #address="ngModel"></textarea>
+                    <div class="error_msg" *ngIf="address?.touched && address?.invalid">
+                        Address is Required
+                    </div>
+                </div>
+            </div>
+            <div class="submitBtn">
+                <button class="btn btn-success" type="submit">Submit</button>
+                <button class="btn btn-danger resetBtn mx-4">Reset</button>
+                <button class="btn btn-secondary resetBtn mx-4" routerLink="/dashboard">Go to Dashborad</button>
+            </div>
+        </form>
+    </div>
+</div>

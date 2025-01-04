@@ -1,0 +1,16 @@
+.container{
+    background-color: rgb(144, 233, 144);
+    padding: 20px;
+    color: rgb(2, 8, 13);
+}
+.error_text{
+    color: red;
+}
+/* .form-control.ng-invalid.ng-touched{
+    border: 1px solid red;
+} */
+.heading{
+    color: aliceblue;
+    background-color: #323272;
+    padding: 5px;
+}

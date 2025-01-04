@@ -1,0 +1,9 @@
+<div [formGroup]="formControlVal">
+    <label [class]="label.labelClass">{{label.labelTitle}}</label>
+    <select [class]="dropdown.dropdownClass" [formControlName]="_formControlName">
+        <option value="null" selected disabled>{{dropdown.dropdownPlaceholder}}</option>
+        <ng-container *ngFor="let item of dropdownRecords">
+            <option [value]="item.id"> {{item.value}} </option>
+        </ng-container>
+    </select>
+</div>

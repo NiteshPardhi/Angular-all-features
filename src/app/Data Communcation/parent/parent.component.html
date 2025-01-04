@@ -1,0 +1,35 @@
+
+<div>
+    <h4 class="heading"> 
+        Data Communication Between Components
+    </h4>
+</div>
+<div class="main-container mt-4 mb-5">
+    <h4>This is Parent component</h4>
+    <div class="mt-4">
+        <h4>#.Steps for data passing between component given below...!</h4>
+        <p>1. Parent to child:- via @Input </p>
+        <p>2. Child To parent:- via @Output With EventEmitter </p>
+        <p>3. Child To parent:- via @ViewChild </p>
+        <p>4. For Other component:- via Services </p>
+    </div>
+
+    <div class="mt-4">
+        <h5>1. Parent to child:- via @Input </h5>
+        <!-- <app-child [inputFromParent]="forChild"></app-child> -->
+    </div>
+    <div class="mt-4">
+        <h5>2. Child To parent:- via @Output With EventEmitter </h5>
+        <app-child (updatedData)="getData($event)"></app-child>
+        <p>{{forParent}}</p>
+    </div>
+    <div class="mt-4">
+        <h5>3. Child To parent:- via @ViewChild </h5>
+        <!-- <app-child></app-child>
+        <button class="btn btn-success" (click)="onclick()">Click Me!</button>
+        <p>{{forParent}}</p> -->
+    </div>
+    <div class="mt-4">
+        <h5>4. For Other component:- via Services</h5>
+    </div>
+</div>

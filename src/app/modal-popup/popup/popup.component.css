@@ -1,0 +1,10 @@
+.container{
+    background-color: rgb(159, 226, 226);
+    /* padding: 15px; */
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    padding-top: 10px; /* Location of the box */
+    top: 0;/* Full width */
+}

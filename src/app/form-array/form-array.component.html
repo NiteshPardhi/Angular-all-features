@@ -1,0 +1,110 @@
+
+<div class="form1 mt-4 mb-5">
+    <h4 class="mb-4 heading1">Reactive Form With FormArray</h4>
+    <div class="form1_content">
+        <form [formGroup]="registrationForm">
+            <div class="row formGroup mb-3 mt-4">
+                <div class="col">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name">
+                    <div class="error_msg">
+                        <div *ngIf="registrationForm.get('firstName')?.hasError('required') && (registrationForm.get('firstName')?.touched)">
+                            First Name is Required
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Last Name">
+                    <div class="error_msg">
+                        <p *ngIf="registrationForm.get('lastName')?.hasError('required') && (registrationForm.get('lastName')?.touched)">
+                            Last Name is Required
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="number" class="form-control" formControlName="id" placeholder="Enter ID">
+                </div>
+            </div>
+            <div class="row formGroup mb-3">
+                <div class="col">
+                    <label for="mobileNo" class="form-label">Mobile Number</label>
+                    <input type="number" class="form-control" formControlName="mobileNo" placeholder="Enter Mobile Number">
+                    <div class="error_msg">
+                        <div *ngIf="registrationForm.get('mobileNo')?.hasError('required') && (registrationForm.get('mobileNo')?.touched)">
+                            Mobile Number is Required
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter Email">
+                    <div class="error_msg">
+                        <div *ngIf="registrationForm.get('email')?.hasError('required') && (registrationForm.get('email')?.touched)">
+                            Email is Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div formArrayName="address">
+                <h4 class="formArryHeading">Add address using formArray</h4>
+                <div  *ngFor="let item of getAddress().controls; let i = index" [formGroupName]="i">
+                    <div class="row mt-4" >
+                        <div class="col">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" formControlName="city" placeholder="Enter city">
+                            <div class="error_msg">
+                                <div *ngIf="getAddress().controls[i].get('city')?.hasError('required') && (getAddress().controls[i].get('city')?.touched)">
+                                    City is Required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <label for="state" class="form-label"> State</label>
+                            <input type="text" class="form-control" formControlName="state" placeholder="Enter State">
+                            <div class="error_msg">
+                                <div *ngIf="getAddress().controls[i].get('state')?.hasError('required') && (getAddress().controls[i].get('state')?.touched)">
+                                    State is Required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary mt-4" (click)="addAddress()">+ Multiple Address</button>
+                            <button type="submit" class="btn btn-danger mt-4 mx-3" (click)="deleteAddress(i)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="submitBtn mt-3 mb-3">
+            <button class="btn btn-success" type="submit" (click)="onSubmit()">Submit</button>
+            <button class="btn btn-danger mx-3" type="submit" (click)="reset()">Reset</button>
+            <button class="btn btn-secondary resetBtn mx-4" routerLink="/home/dashboard">Go to Dashborad</button>
+        </div>
+    </div>
+
+
+    <div class="mt-5">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Mobile Number</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of formData">
+                    <td>{{data.id}}</td>
+                    <td>{{data.firstName}}</td>
+                    <td>{{data.lastName}}</td>
+                    <td>{{data.mobileNo}}</td>
+                    <td>{{data.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

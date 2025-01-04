@@ -1,0 +1,67 @@
+
+<h4 class="heading">Custom Directives</h4>
+<div class="container mt-4 mb-5">
+    <div class="directive">
+        <h3>Here we use Custom Directives for Valid Email...!</h3>
+        <form [formGroup]="userForm">
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="">Email</label>
+                    <input type="email" placeholder="Enter Email" class="form-control" formControlName="email"
+                        emailDirective>
+                    <p class="error_text"
+                        *ngIf="userForm.get('email')?.hasError('required') && userForm.get('email')?.touched">
+                        Email is Required
+                    </p>
+                    <p class="error_text" *ngIf="userForm.get('email')?.dirty && userForm.get('email')?.errors">
+                        Please Enter valid Email
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <h3>Here we use Custom Directives for Pan Card Number Validation...!</h3>
+                <div class="col-md-4">
+                    <label for="">Pan Card Number</label>
+                    <input type="text" placeholder="Enter Pan Card No" class="form-control" formControlName="panCard"
+                    panCardDirective>
+                    <p class="error_text"
+                        *ngIf="userForm.get('panCard')?.hasError('required') && userForm.get('panCard')?.touched">
+                        Pan Card Number is Required
+                    </p>
+                    <p class="error_text" 
+                       *ngIf="userForm.get('panCard')?.hasError('pancardValidation1') && userForm.get('panCard')?.touched && !userForm.get('panCard')?.hasError('required')">
+                        Pan Card Number should Start with "S" or "N" and "M"
+                    </p>
+                    <p class="error_text" 
+                       *ngIf="userForm.get('panCard')?.hasError('pancardLength') && userForm.get('panCard')?.touched && !userForm.get('panCard')?.hasError('required')">
+                        Pan Card Number length should be 10 digit number
+                    </p>
+                    <p class="error_text" 
+                       *ngIf="userForm.get('panCard')?.hasError('pancardValidation2') && userForm.get('panCard')?.touched && !userForm.get('panCard')?.hasError('required')">
+                        Pan Card Number should be End with 5
+                    </p>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <h3>Here we use Custom Directives for After Decimal Only Two Digit Allowed...!</h3>
+                <div class="col-md-4">
+                    <label>Amount</label>
+                    <input type="text" placeholder="Enter Amount" class="form-control" formControlName="amount"
+                    afterDecimalTwoDigitDirective>
+                    <!-- <p class="error_text"
+                        *ngIf="userForm.get('amount')?.hasError('required') && userForm.get('amount')?.touched">
+                        Amount is Required
+                    </p> -->
+                </div>
+            </div>
+        </form>
+        <!-- <button class="btn btn-secondary mt-4" (click)="submit()">Submit</button> -->
+    </div>
+
+    <div class="mt-4">
+        <h3>Here we use Custom Directive for change css proprty on mouseover and mouseleave </h3>
+        <p highlightDirective class="mt-4">Hello I Am Highlight Directive.....!</p>
+    </div>
+</div>

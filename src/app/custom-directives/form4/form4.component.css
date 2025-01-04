@@ -1,0 +1,12 @@
+.error_text{
+    color: red;
+}
+.container{
+    background-color: rgb(218, 178, 186);
+    padding: 20px;
+}
+.heading{
+    color: aliceblue;
+    background-color: #323272;
+    padding: 5px;
+}

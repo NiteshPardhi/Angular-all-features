@@ -1,0 +1,94 @@
+<div class=" mt-4 mb-5">
+    <h4 class="heading">Custom Validators</h4>
+
+    <div class="container">
+        <h2>Here we use Custom Validator.....!</h2>
+        <p>We use Abstractcontrol to control the validation using Reactive Form</p>
+
+        <form [formGroup]="validationForm">
+            <div class="row mt-4">
+                <div class="col">
+                    <label for="">Name</label>
+                    <input type="text" placeholder="Enter Name" class="form-control" formControlName="name">
+                    <p class="error_text"
+                    *ngIf="validationForm.get('name')?.hasError('required') && validationForm.get('name')?.touched">
+                        Name is Required
+                    </p>
+                    <p class="error_text"
+                    *ngIf="validationForm.get('name')?.hasError('onlyCharacterValidator') && validationForm.get('name')?.dirty">
+                       Only Character are Required
+                    </p>
+                </div>
+                <div class="col">
+                    <label for="">Age</label>
+                    <input type="text" placeholder="Enter Age" class="form-control" formControlName="age">
+                    <p class="error_text"
+                    *ngIf="validationForm.get('age')?.hasError('required') && validationForm.get('age')?.touched">
+                        Age is Required
+                    </p>
+                    <p class="error_text"
+                    *ngIf="validationForm.get('age')?.hasError('onlyNumberValidator') && validationForm.get('age')?.dirty && !validationForm.get('age')?.hasError('required')">
+                        Only Numbers are Required
+                    </p>
+                    <p class="error_text"
+                    *ngIf="validationForm.get('age')?.hasError('lengthValidator') && validationForm.get('age')?.dirty">
+                        Age Should have 2 digit Number
+                    </p>
+                </div>
+                <div class="col">
+                    <label for="">Contact Number</label>
+                    <input type="text" placeholder="Enter Contact Number" class="form-control"
+                        formControlName="contact_number">
+                    <p class="error_text"
+                        *ngIf="validationForm.get('contact_number')?.hasError('required') && validationForm.get('contact_number')?.touched">
+                        Contact Number Is Required
+                    </p>
+                    <p class="error_text"
+                        *ngIf="validationForm.get('contact_number')?.hasError('onlyNumberValidator') && validationForm.get('contact_number')?.touched
+                            && !validationForm.get('contact_number')?.hasError('required')">
+                        Only Numbers are Required
+                    </p>
+                    <p class="error_text"
+                    *ngIf="validationForm.get('contact_number')?.hasError('validMobileNo') && validationForm.get('contact_number')?.touched
+                        && !validationForm.get('contact_number')?.hasError('required')  && !validationForm.get('contact_number')?.hasError('onlyNumberValidator')">
+                    Contact Number Should be 10 digit Number
+                </p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <label for="">Email</label>
+                    <input type="text" placeholder="Enter Email" class="form-control" formControlName="email">
+                    <p class="error_text"
+                     *ngIf="validationForm.get('email')?.hasError('required') && validationForm.get('email')?.touched">
+                        Email is Required
+                    </p>
+                    <p class="error_text"
+                     *ngIf="validationForm.get('email')?.hasError('emailDomainValidator') && validationForm.get('email')?.touched
+                       && !validationForm.get('email')?.hasError('required')">
+                        Email Domain includes a@gmail.com Required
+                    </p>
+                </div>
+                <div class="col">
+                    <label for="">Website</label>
+                    <input type="text" placeholder="Enter Website" class="form-control" formControlName="website">
+                    <p class="error_text"
+                    *ngIf="validationForm.get('website')?.hasError('required') && validationForm.get('website')?.touched">
+                        Website is Required
+                    </p>
+                    <p class="error_text"
+                    *ngIf="validationForm.get('website')?.hasError('websiteUrlValidator') && validationForm.get('website')?.touched
+                       && !validationForm.get('website')?.hasError('required')">
+                        Website start with 'https:// Or http://''
+                    </p>
+                    <p class="error_text"
+                    *ngIf="validationForm.get('website')?.hasError('websiteUrlValidator1') && validationForm.get('website')?.touched
+                       && !validationForm.get('website')?.hasError('required')">
+                        Website end with '.io'
+                    </p>
+                </div>
+            </div>
+        </form>
+        <button class="btn btn-warning mt-4" (click)="submit()">Submit</button>
+    </div>
+</div>

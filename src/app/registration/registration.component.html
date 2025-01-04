@@ -1,0 +1,127 @@
+
+<div class="form1 mt-4 mb-5">
+    <h4 class="mb-4 heading1">Registration Form with Reactive Form</h4>
+    <div class="form1_content">
+        <form [formGroup]="registrationForm">
+            <div class="row formGroup mb-3 mt-4">
+                <div class="col">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name">
+                    <div class="error_msg">
+                        <div *ngIf="registrationForm.get('firstName')?.hasError('required') && (registrationForm.get('firstName')?.touched || submitted)">
+                            First Name is Required
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="middleName" class="form-label">Middle Name</label>
+                    <input type="text" class="form-control" formControlName="middleName" placeholder="Enter Middle Name">
+                    <div class="error_msg">
+                        <p *ngIf="registrationForm.get('middleName')?.hasError('required') && (registrationForm.get('middleName')?.touched || submitted)">
+                            Middle Name is Required
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Last Name">
+                    <div class="error_msg">
+                        <div *ngIf="registrationForm.get('lastName')?.hasError('required') && (registrationForm.get('lastName')?.touched || submitted)">
+                            Last Name is Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row formGroup mb-3">
+                <div class="col">
+                    <label for="mobileNo" class="form-label">Mobile Number</label>
+                    <input type="number" class="form-control" formControlName="mobileNo" placeholder="Enter Mobile Number">
+                    <div class="error_msg">
+                        <div *ngIf="registrationForm.get('mobileNo')?.hasError('required') && (registrationForm.get('mobileNo')?.touched || submitted)">
+                            Mobile Number is Required
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter Email">
+                    <div class="error_msg">
+                        <div *ngIf="registrationForm.get('email')?.hasError('required') && (registrationForm.get('email')?.touched || submitted)">
+                            Email is Required
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row formGroup mb-3">
+                <div class="col">
+                    <label for="dateOfBirth" class="form-label">Date Of Birth</label>
+                    <input type="date" class="form-control" formControlName="dateOfBirth" placeholder="select Date of Birth">
+                    <div class="error_msg">
+                        <p *ngIf="registrationForm.get('dateOfBirth')?.hasError('required') && (registrationForm.get('dateOfBirth')?.touched || submitted)">
+                            Date of Birth is Required
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="nationality" class="form-label">Nationality</label>
+                    <select class="form-control" formControlName="nationality">
+                        <option value="">Please Select</option>
+                        <option value="Indian">Indian</option>
+                        <option value="Muslim">Muslim</option>
+                        <option value="Sikh">Sikh</option>
+                    </select>
+                    <div class="error_msg">
+                        <p *ngIf="registrationForm.get('nationality')?.hasError('required') && (registrationForm.get('nationality')?.touched || submitted)">
+                            Nationality is Required
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="number" class="form-control" formControlName="id" placeholder="Enter Id">
+                    <div class="error_msg">
+                        <p *ngIf="registrationForm.get('id')?.hasError('required') && (registrationForm.get('id')?.touched || submitted)">
+                            ID is Required
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter Address" placeholder="address" formControlName="address"></textarea>
+                    <div class="error_msg">
+                        <p *ngIf="registrationForm.get('address')?.hasError('required') && (registrationForm.get('address')?.touched || submitted)">
+                            Address is Required
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="submitBtn">
+            <button class="btn btn-success" type="submit" (click)="onSubmit()">Submit</button>
+            <button class="btn btn-danger resetBtn" type="submit" (click)="resetReactiveForm()">Reset</button>
+            <button class="btn btn-secondary resetBtn mx-4" routerLink="/dashboard">Go to Dashborad</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="myModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Data</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are You Sure you want to Add ....?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" (click)="submitReactiveForm()">Yes</button>
+                <button type="submit" class="btn btn-secondary" (click)="closePopup()">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  

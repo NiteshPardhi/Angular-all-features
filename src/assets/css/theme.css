@@ -1,0 +1,28 @@
+.headingH4{
+    color: rgb(235, 239, 242);
+    background-color: #323272;
+    padding: 5px;
+}
+.classLable{
+    color: #323272;
+    font-weight: bold;
+}
+.form-control:hover{
+    cursor: pointer;
+    background-color: #ddddea;
+}
+.classCheckbox{
+    color: #323272;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.form-control.ng-touched.ng-invalid{
+    border: 1px solid red;
+}
+.form-control-lg{
+    border: 2px solid green;
+}
+.common_controls_page{
+    padding: 20px;
+    background-color: rgb(154, 244, 145);
+}

@@ -1,0 +1,31 @@
+
+<h4 class="heading">Custom Pipes</h4>
+<div class="container mt-4">
+    <h4>#. Here we use Custom Pipe For Titlecase</h4>
+        <h5 class="title">Custom Pipe:- {{'hiiii... i am nitesh pardhi from maharashtra' | titlecase}}</h5>
+    <h5 class="title">Uppercase Pipe:- {{'hiiii... i am nitesh pardhi' | uppercase}}</h5>
+    <h5 class="title">Lowercase Pipe:- {{'HIIIII... I AM NITESH PARDHI' | lowercase}}</h5>
+    <h5 class="title">Currency Pipe:- {{'5454544' | currency: 'INR' }}</h5>
+    <h5 class="title">Currency Pipe:- {{'5454544' | currency }}</h5>
+
+    <h4>#. Here we use Custom Filter Pipe</h4>
+    <input type="text" placeholder="Enter Name.." [(ngModel)]="searchTerm">
+    <div class="mt-4">
+        <table class="table table-striped text-center">
+            <thead class="text-uppercase fs-4">
+                <tr>
+                    <th>Title</th>
+                    <th>Value</th>
+                    <th>Digit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items | filterPipe: searchTerm ">
+                    <td>{{item.title}}</td>
+                    <td>{{item.value}}</td>
+                    <td>{{item.digit}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>|

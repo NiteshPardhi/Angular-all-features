@@ -1,0 +1,89 @@
+
+<!-- Old Login Page -->
+<!-- <div class="form ">
+    <h2 class="heading">Login</h2>
+    <div>
+        <form [formGroup]="loginForm">
+            <div class="row">
+                <div class="inputForm">
+                    <label for="userName">User Name</label>
+                    <input type="text" class="form-control" formControlName="userName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="inputForm">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" formControlName="password">
+                </div>
+            </div>
+            <p class="text">To Complete the Login Click on Submit button.</p>
+            <div class="submitBtn">
+                <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid" (click)="submitForm()">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+<!-- New Login Page -->
+<div class="main-container">
+    <div class="main-container_left">
+        <div class="main-container_left_header">
+            <p>Angular</p>
+        </div>
+        <div class="main-container_left_info">
+            <p>
+                "Angular has streamlined our entire production process, from farm to shelf. It's an indispensable
+                tool for modern development management."
+            </p>
+        </div>
+        <div class="main-container_left_footer">
+            <p>Designed & Developed by Nitesh P. Pardhi (Software Developer)</p>
+        </div>
+    </div>
+    <div class="main-container_right">
+        <div class="main-container_right_mainForm">
+            <div class="main-container_right_mainForm_header">
+                <h3>Welcome to Angular</h3>
+            </div>
+            <div class="main-container_right_mainForm_text">
+                <p>
+                    Enter your credentials to access your Angular dashboard
+                </p>
+            </div>
+            <div class="main-container_right_mainForm_btn">
+                <button class="btn">Login</button>
+            </div>
+            <form [formGroup]="loginForm">
+                <div class="main-container_right_mainForm_form">
+                    <div class="main-container_right_mainForm_form_inputGroup">
+                        <label for="">Username</label>
+                        <input type="text" class="form-control" formControlName="userName" placeholder="Enter Username">
+                        <div *ngIf="loginForm.get('userName')?.hasError('required') && (loginForm.get('userName')?.touched || loginForm.get('userName')?.dirty)">
+                            <p class="error_text">
+                                UserName should be required
+                            </p>
+                        </div>
+                    </div>
+                    <div class="main-container_right_mainForm_form_inputGroup">
+                        <label for="">Password</label>
+                        <input type="password" class="form-control" formControlName="password" placeholder="Enter Password">
+                        <div *ngIf="loginForm.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+                            <p class="error_text" *ngIf="loginForm.get('password')?.hasError('required')">
+                                Password should be required
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="main-container_right_mainForm_submitBtn">
+                <button class="btn" type="submit" (click)="onSubmit()">Login in to dashboard</button>
+            </div>
+            <hr>
+            <div class="main-container_right_mainForm_footer1">
+                <p>By clicking continue, you agree to features Terms of Service and Privacy Policy.</p>
+            </div>
+        </div>
+    </div>
+</div>

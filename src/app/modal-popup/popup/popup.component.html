@@ -1,0 +1,61 @@
+<div class="mt-4 mb-5">
+    <h4 class="headingH4">Modal Popups</h4>
+    <div class="container">
+        <h2>
+            Here we Show Modal popup
+        </h2>
+        <div class="mt-3">
+            <h4>
+                1. Popup using HTML and CSS
+            </h4>
+
+            <button class="btn btn-success mt-3" (click)="openPopup()">Open Popup</button>
+
+            <div id="myModal" class="modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Modal Popup</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p>This is modal Popup with HTML and CSS</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" (click)="closePopup()">Yes</button>
+                            <button type="submit" class="btn btn-secondary" (click)="closePopup()">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <h4>
+                2. Popup using SweetAlert2 with Swal method
+            </h4>
+            <div class="mt-4">
+                <h5>Show Normal Popup</h5>
+                <button class="btn btn-secondary" (click)="showNormalPopup()">Click Me!</button>
+            </div>
+            <div class="mt-4">
+                <h5>Show Success Popup</h5>
+                <button class="btn btn-success" (click)="showSuccessPopup()">Click Me!</button>
+            </div>
+            <div class="mt-4">
+                <h5>Show Error Popup</h5>
+                <button class="btn btn-warning" (click)="showErrorPopup()">Click Me!</button>
+            </div>
+            <div class="mt-4">
+                <h5>Show Question Popup</h5>
+                <button class="btn btn-info" (click)="showQuestionPopup()">Click Me!</button>
+            </div>
+            <div class="mt-4">
+                <h5> Show HTML Popup</h5>
+                <button class="btn btn-primary" (click)="showHtmlPopup()">Click Me!</button>
+            </div>
+            <div class="mt-4">
+                <h5>Show Delete and Cancel Popup</h5>
+                <button class="btn btn-warning" (click)="showDeleteCancelPopup()">Click Me!</button>
+            </div>
+        </div>
+    </div>
+</div>

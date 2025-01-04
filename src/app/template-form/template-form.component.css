@@ -1,0 +1,24 @@
+/* .form2{
+    margin-left: 300px;
+    padding-top: 50px;
+    margin-right: 30px;
+} */
+.form2_content{
+    background-image: url('../../assets/desktop-wallpaper-nature.jpg');
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+}
+.error_msg{
+    color: rgb(237, 245, 14);
+    font-size: 20px;
+}
+.heading1{
+    color: aliceblue;
+    background-color: #323272;
+    padding: 5px;
+}
+.form-label{
+    color: aliceblue;
+}

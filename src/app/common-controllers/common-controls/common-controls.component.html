@@ -1,0 +1,63 @@
+<div class="container mt-4 mb-4">
+  <h4 class="headingH4">Custom Common Controllers</h4>
+  <span>Note:- Here we use Common Controls for Input, Dropdown, Textarea and Checkbox</span><br>
+  <span>Note:- We can use this Controllers in multiple times in different components</span>
+  <div class="common_controls_page mt-4">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col-md-4">
+          <app-input-controller [_label]="{labelTitle: 'First Name', lableClass:'classLable'}"
+            [_input]="{inputType: 'text', inputPlaceholder: 'Enter First Name', inputClass: 'input_border form-control'}"
+            [_formControlName]="'first_name'" [group]="'test'">
+          </app-input-controller>
+        </div>
+        <div class="col-md-4">
+          <app-input-controller [_label]="{labelTitle: 'Last Name', lableClass:'classLable'}"
+            [_input]="{inputType: 'text', inputPlaceholder: 'Enter Last Name', inputClass: 'form-control'}"
+            [_formControlName]="'last_name'" [group]="'test'">
+          </app-input-controller>
+        </div>
+        <div class="col-md-4">
+          <app-input-controller [_label]="{labelTitle: 'Email', lableClass:'classLable'}"
+            [_input]="{inputType: 'text', inputPlaceholder: 'Enter Email', inputClass: 'form-control'}"
+            [_formControlName]="'email'" [group]="'test'">
+          </app-input-controller>
+        </div>
+        <div class="col-md-4 mt-4">
+          <app-input-controller [_label]="{labelTitle: 'Mobile Number', lableClass:'classLable'}"
+            [_input]="{inputType: 'number', inputPlaceholder: 'Enter Mobile Number', inputClass: 'form-control'}"
+            [_formControlName]="'mobile_no'" [group]="'test'">
+          </app-input-controller>
+        </div>
+        <div class="col-md-4 mt-4">
+          <app-input-controller [_label]="{labelTitle: 'Age', lableClass:'classLable'}"
+            [_input]="{inputType: 'number', inputPlaceholder: 'Enter Age', inputClass: 'form-control'}"
+            [_formControlName]="'age'" [group]="'test'">
+          </app-input-controller>
+        </div>
+        <div class="col-md-4 mt-4">
+          <app-dropdown-controller [label]="{labelClass: 'classLable', labelTitle: 'Nationality'}"
+            [staticData]="nationality"
+            [dropdown]="{dropdownClass: 'form-select select', dropdownPlaceholder: 'Select Nationality'}"
+            [_formControlName]="'nationality'" [group]="'test'">
+          </app-dropdown-controller>
+        </div>
+        <div class="col-md-6 mt-4">
+          <app-textarea-controller [label]="{labelClass: 'classLable', labelTitle: 'Address'}"
+            [textarea]="{textareaClass: 'form-control', placeholder: 'Enter Address'}" [_formControlName]="'address'"
+            [group]="'test'">
+          </app-textarea-controller>
+        </div>
+        <div class="col-md-4 mt-5">
+          <app-checkbox-controller [label]="{labelClass: 'classCheckbox', labelTitle: 'Please check me...!'}"
+            [checkbox]="{checkboxClass: 'form-check-input'}" [_formControlName]="'isCheck'" [group]="'test'">
+          </app-checkbox-controller>
+        </div>
+      </div>
+      <div class="mt-4">
+        <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        <button class="btn btn-secondary mx-4" (click)="onReset()">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>
