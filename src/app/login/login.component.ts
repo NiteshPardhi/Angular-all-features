@@ -22,21 +22,22 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(private authService: AuthService, private router: Router) {
-    localStorage.setItem('loginCrediential',JSON.stringify(this.loginCrediential));
+    localStorage.setItem('loginCrediential', JSON.stringify(this.loginCrediential));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  // submitForm(){
-  //   this.loginData = this.loginForm.value;
-  //   console.log(this.loginData);
+  submitForm() {
+    this.loginData = this.loginForm.value;
+    console.log(this.loginData);
 
-  //   if(!this.loginForm.valid){
-  //     return;
-  //   }
-  //   this.authService.onLogin(this.loginData);
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+    this.authService.onLogin(this.loginData);
 
-  // }
+  }
 
   onSubmit() {
     this.loginData = this.loginForm.value;

@@ -1,32 +1,31 @@
 /* old css */
-/* .submitBtn{
-    margin-left: 42%;
-    margin-bottom: 20px;
+._form{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 130px;
 }
-.form{
-    background-color: rgb(149, 224, 224);
+.loginForm{
     width: 35%;
-    border: 1px gray solid;
-    border-radius: 50px;
-    margin-left: 30%;
-    margin-top: 40px;
+    padding: 25px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .heading{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 42%;
+    padding-bottom: 60px;
     color: rgb(89, 13, 212);
-    font-weight: 700;
+    font-weight: 900;
 }
 .inputForm{
-    margin-left: 27px;
-    width: 90%;
-    margin-bottom: 25px;
+    margin-top: 10px;
+}
+.submitBtn{
+    padding-top: 20px;
 }
 .text{
-    margin-left: 25px;
+    padding-top: 20px;
     color: rgb(226, 30, 158);
-} */
+}
 
 
 /* new css */
