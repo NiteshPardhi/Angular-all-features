@@ -38,14 +38,4 @@ export class LoginComponent implements OnInit {
     this.authService.onLogin(this.loginData);
 
   }
-
-  onSubmit() {
-    this.loginData = this.loginForm.value;
-    console.log(this.loginData);
-
-    // if (!this.loginForm.valid) {
-    //   return;
-    // }
-    this.authService.onLogin(this.loginData);
-  }
 }
